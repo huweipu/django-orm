@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <link rel="stylesheet" href="/static/bootstrap.css">
+</head>
+
+<body>
+  <header>
+    {% block bock_name %}
+    <h1 class="text-center">书籍添加</h1>
+    {% endblock bock_name %}
+  </header>
+  <div>
+    <div class="container">
+      <div class="row ">
+        <div class="col-md-4 col-md-offset-4">
+          {% block form %}
+          <form method="post">
+            {% csrf_token %}
+            <div class="form-group">
+              <label for="title">书名：</label>
+              <input type="text" name="title" class="form-control" id="title" placeholder="填写书名！">
+            </div>
+            <div class="form-group">
+              <label for="price">价格：</label>
+              <input type="text" name="price" class="form-control" id="price" placeholder="填写价格">
+            </div>
+            <div class="form-group">
+              <label class="pub_date">日期：</label>
+              <input type="date" name="pub_date" class="form-control" id="=pub_date" placeholder="填写价格">
+            </div>
+            <button type="submit" class="btn btn-success center-block">添加</button>
+          </form>
+          {% endblock form %}
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

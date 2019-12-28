@@ -1,0 +1,22 @@
+{% extends "book_add.html" %}
+
+{% block form %}
+<form method="post">
+  {% csrf_token %}
+  {% for item  in bock %}
+  <div class="form-group">
+    <label for="title">书名：</label>
+    <input type="text" name="title" class="form-control" id="title" value="{{item.title}}">
+  </div>
+  <div class="form-group">
+    <label for="price">价格：</label>
+    <input type="text" name="price" class="form-control" id="price" value="{{item.price}}">
+  </div>
+  <div class="form-group">
+    <label class="pub_date">日期：</label>
+    <input type="date" name="pub_date" class="form-control" id="=pub_date" value="{{item.pub_date|date:"Y-m-d"}}">
+  </div>
+  <button type="submit" class="btn btn-success center-block">添加</button>
+</form>
+{% endfor %}
+{% endblock form %}
